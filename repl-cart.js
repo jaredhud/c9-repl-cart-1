@@ -58,4 +58,4 @@ while (true) {
     console.log(`Invalid command: ${theCommand}`);
   }
 }
-//This is just a test
+//This is another testing comment
