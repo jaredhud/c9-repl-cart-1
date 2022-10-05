@@ -1,5 +1,7 @@
 import rl from 'readline-sync';
 
-const result = rl.question('What is your name? ');
+let commands = ["list products"];
+console.log("The commands are:", commands);
+const result = rl.question('What is your command? ');
 
-console.log(`Hey ${result}!`);
+console.log(`Command you entered: ${result}`);
