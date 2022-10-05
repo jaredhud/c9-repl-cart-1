@@ -34,17 +34,24 @@ let products = [
   },
 ];
 
+let cart = [];
+
 while (true) {
-  console.log('----------------\nThe commands are:', commands);
+  console.log('\n----------------\nThe commands are:', commands);
   const theCommand = rl.question('What is your command? ');
 
   if (theCommand === 'list products') {
     console.log('Here is the list of products:');
     products.forEach((p) => {console.log('  - ', p.name)})
   } else if (theCommand === 'show product') {
-    console.log('Product Details Go HERE');
+    const theName = rl.question('Which product do you want to see? ');
+    const theProduct = products.find((p) => p.name === theName);
+    console.log('The product details are:\n', theProduct);
   } else if (theCommand === 'add to cart') {
-    console.log('It is in the cart!!! Yummy!');
+    const theName = rl.question('Which product do you want to add to cart? ');
+    const theProduct = products.find((p) => p.name === theName);
+    cart.push(theProduct);
+    console.log('Added! Number of items in your cart: ', cart.length);
   } else {
     console.log(`Invalid command: ${theCommand}`);
   }
