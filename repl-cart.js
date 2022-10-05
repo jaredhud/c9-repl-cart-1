@@ -1,6 +1,6 @@
 import rl from 'readline-sync';
 
-let commands = ['list products', 'show product', 'add to cart', 'show cart'];
+let commands = ['listProducts', 'showProduct', 'add to cart', 'show cart'];
 let products = [
   {
     name: 'hair spray',
@@ -40,10 +40,10 @@ while (true) {
   console.log('\n----------------\nThe commands are:', commands);
   const theCommand = rl.question('What is your command? ');
 
-  if (theCommand === 'list products') {
+  if (theCommand === 'listProducts') {
     console.log('Here is the list of products:');
     products.forEach((p) => {console.log('  - ', p.name)})
-  } else if (theCommand === 'show product') {
+  } else if (theCommand === 'showProduct') {
     const theName = rl.question('Which product do you want to see? ');
     const theProduct = products.find((p) => p.name === theName);
     console.log('The product details are:\n', theProduct);
@@ -53,8 +53,7 @@ while (true) {
     cart.push(theProduct);
     console.log('Added! Number of items in your cart: ', cart.length);
   } else if (theCommand === 'show cart'){
-    const theProductInCart = cart.find((p) => p.name );
-    console.log(theProductInCart);
+     cart.forEach((p) => {console.log(p.name)});
   }else {console.log(`Invalid command: ${theCommand}`);
   }
 }
