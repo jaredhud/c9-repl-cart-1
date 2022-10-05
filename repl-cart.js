@@ -1,40 +1,47 @@
 import rl from "readline-sync";
 
-let commands = ["list products", "show product", "add to cart", "show cart"];
+let commands = [
+  "list products",
+  "show product",
+  "add to cart",
+  "show cart",
+  "show total price",
+];
 let products = [
   {
     name: "hair spray",
-    price: "$5",
+    price: 5,
     description: "keep your hair straight & tidy",
     upcCode: "123xyz567",
   },
   {
     name: "fruit loops",
-    price: "$2",
+    price: 2,
     description: "best cereal ever",
     upcCode: "111yyy000",
   },
   {
     name: "tweezers",
-    price: "$1",
+    price: 1,
     description: "Tweek, OW!",
     upcCode: "333398988",
   },
   {
     name: "bananananananas",
-    price: "$29",
+    price: 29,
     description: "Yellow and Yummy",
     upcCode: "4011",
   },
   {
     name: "baseball cards",
-    price: "$0.10",
+    price: 0.1,
     description: "Let's Go Blue Jays",
     upcCode: null,
   },
 ];
 
 let cart = [];
+let totalPrice = 0;
 
 while (true) {
   console.log("\n----------------\nThe commands are:", commands);
@@ -53,11 +60,14 @@ while (true) {
     const theName = rl.question("Which product do you want to add to cart? ");
     const theProduct = products.find((p) => p.name === theName);
     cart.push(theProduct);
+    totalPrice += theProduct.price;
     console.log("Added! Number of items in your cart: ", cart.length);
     console.log("Here is everything in your cart", cart);
   } else if (theCommand === "show cart") {
     console.log("You have " + cart.length + " item(s) in your cart");
     console.log("Here is everything in your cart", cart);
+  } else if (theCommand === "show total price") {
+    console.log("You're current total price is $", totalPrice);
   } else {
     console.log(`Invalid command: ${theCommand}`);
   }
