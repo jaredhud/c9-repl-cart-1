@@ -4,19 +4,19 @@ let commands = ['list products', 'show product', 'add to cart','show cart'];
 let products = [
   {
     name: 'hair spray',
-    price: '$5',
+    price: 5,
     description: 'keep your hair straight & tidy',
     upcCode: '123xyz567',
   },
   {
     name: 'fruit loops',
-    price: '$2',
+    price: 2,
     description: 'best cereal ever',
     upcCode: '111yyy000',
   },
   {
     name: 'tweezers',
-    price: '$1',
+    price: 1,
     description: 'Tweek, OW!',
     upcCode: '333398988',
   },
@@ -35,6 +35,7 @@ let products = [
 ];
 
 let cart = [];
+let totalPrice = 0;
 
 while (true) {
   console.log('\n----------------\nThe commands are:', commands);
@@ -52,8 +53,12 @@ while (true) {
     const theProduct = products.find((p) => p.name === theName);
     cart.push(theProduct);
     console.log('Added! Number of items in your cart: ', cart.length);
-  } else if (theCommand === 'show to cart') {
-    console.log(cart)    
+  } else if (theCommand === 'show cart') {
+    console.log(cart) 
+    for (let e of cart) {
+      totalPrice += e;
+    console.log(totalPrice)
+    }
   } else {
     console.log(`Invalid command: ${theCommand}`);
   }
