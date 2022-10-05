@@ -39,7 +39,8 @@ while (true) {
   const theCommand = rl.question('What is your command? ');
 
   if (theCommand === 'list products') {
-    console.log('Here is the list of products:', products);
+    console.log('Here is the list of products:');
+    products.forEach((p) => {console.log(p.name)})
   } else if (theCommand === 'show product') {
     console.log('Product Details Go HERE');
   } else if (theCommand === 'add to cart') {
